@@ -1,5 +1,20 @@
 CHANGES
 
+3.8.10  Wed May 14 11:36:00 MST 2014
+
+	Corrected a misbehavior with compiler directives that caused 
+	shc to build ptraceable binaries regardless of whether the
+	flag to do this is specified or not (Which is pretty broken
+	and causes the binaries to NOT run without hand-holding on
+	Debian derived distributions because they turned on Ptrace
+	protection in their builds sometime within the last two years.)
+
+	I (Frank Earl) also moved the build to a CMake based build
+	system to allow for cross-compilation (I can see the usefulness
+	for OpenEmbedded, etc., so...) and to more cleanly build
+	for other things like .debs, etc.
+
+
 3.8.9	Wed Apr 25 09:24:25 CEST 2012
 
 	Thanks to Giacomo Picconi <giacomo.picconi@gpstudio.com> for:

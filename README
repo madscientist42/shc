@@ -1,54 +1,36 @@
-How to use SHC Bash Script Compiler
+The generic shell script "compiler" (Obfuscator) - shc
+
+This is a fork of the code thoughtfully provided by Francisco 
+Javier Rosales García at the Universidad Politécnica de Madrid
+(frosal@fi.upm.es)
+
+It (currently) basically packages up the scripting into a bundle 
+within the C code and hands it off to the passed in (as a last 
+command line parameter) shell as a script when it's ran.
+
+The fork was preciptated by some compiler directive misuses, combined
+with a desire to move it in directions that make it easier to cross-
+compile the tool, have it encapsulate the shell scripting language
+that it's packaging either from the shebang line or from a 
+command line parameter...that sort of things.
+
+To build: 
+
+	cmake .
+	make
+
+To test:
+	
+	make test
+
+To install:
+
+	make install
 
 
+Installing will place it in /usr/local/bin and the manpage in 
+/usr/local/manpages.  Issuing the command (shc) without parameters
+will give you help.
 
-copy shc binary to /bin (cp shc /bin)
-give execute permissions (chmod +x /bin/shc)
-
-#shc
-This will give you all the options of the command.
-
-shc Copyright (c) 1994-2003 Francisco Rosales <frosal@fi.upm.es>
-shc Usage: shc [-e date] [-m addr] [-i iopt] [-x cmnd] [-l lopt] [-rvDTCAh] -f script
-
-    -e %s  Expiration date in dd/mm/yyyy format [none]
-    -m %s  Message to display upon expiration ["Please contact your provider"]
-    -f %s  File name of the script to compile
-    -i %s  Inline option for the shell interpreter i.e: -e
-    -x %s  eXec command, as a printf format i.e: exec('%s',@ARGV);
-    -l %s  Last shell option i.e: --
-    -r     Relax security. Make a redistributable binary
-    -v     Verbose compilation
-    -D     Switch ON debug exec calls [OFF]
-    -T     Allow binary to be traceable [no]
-    -C     Display license and exit
-    -A     Display abstract and exit
-    -h     Display help and exit
-
-    Environment variables used:
-    Name    Default  Usage
-    CC      cc       C compiler command
-    CFLAGS  <none>   C compiler flags
-
-    Please consult the shc(1) man page.
-
-Below is a example for how to use it.
-
-#shc -e 31/12/2010 -m "Please contact Gourav Joshi at Gmail dot com" -r -f configs.sh
-
-This will create 2 file as output;
-config.sh.x
-config.sh.x.c
-
-We just have to rename the ".x"  file as some name.
-e.g.
-#mv config.sh.x configs
-This will create a binary "configs", which we will give execute permission and use.
-#chmod +x configs
-# cp -ap configs /bin
-
-Now we can use it directly.
-#configs
-
-Note: - The software used here is a copyright software which is available free to use. There is no code written by me. This document is only meant to help for how to use this software and create a binary of bash script. Any suggestions regarding the software can be directly send at frosal@fi.upm.es 
-
+Since this is a fork, you should contact me for assistance via the
+GitHub issue tracker for the repository (https://github.com/madscientist42/shc)

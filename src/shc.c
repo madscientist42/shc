@@ -14,7 +14,7 @@
  */
 
 static const char my_name[] = "shc";
-static const char version[] = "Version 3.8.9";
+static const char version[] = "Version 3.8.10";
 static const char subject[] = "Generic Script Compiler";
 static const char cpright[] = "Copyright (c) 1994-2012";
 static const struct { const char * f, * s, * e; }
@@ -266,7 +266,7 @@ static const char * RTC[] = {
 "	return -1;",
 "}",
 "",
-"#if !TRACEABLE",
+"#if !defined(TRACEABLE)",
 "",
 "#define _LINUX_SOURCE_COMPAT",
 "#include <sys/ptrace.h>",
@@ -316,7 +316,7 @@ static const char * RTC[] = {
 "	perror(argv0);",
 "	_exit(1);",
 "}",
-"#endif /* !TRACEABLE */",
+"#endif /* !defined(TRACEABLE) */",
 "",
 "char * xsh(int argc, char ** argv)",
 "{",
@@ -400,7 +400,7 @@ static const char * RTC[] = {
 "#if DEBUGEXEC",
 "	debugexec(\"main\", argc, argv);",
 "#endif",
-"#if !TRACEABLE",
+"#if !defined(TRACEABLE)",
 "	untraceable(argv[0]);",
 "#endif",
 "	argv[1] = xsh(argc, argv);",

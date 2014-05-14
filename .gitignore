@@ -1,0 +1,17 @@
+*~
+shc
+Makefile
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+_CPack_Packages
+SNDB4
+.cproject
+.project
+*.proj
+*.x
+*.x.kk
+*.x.c
+*.deb
