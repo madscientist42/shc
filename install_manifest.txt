@@ -1,2 +1,0 @@
-/usr/bin/shc
-/usr/man/man1/shc.1

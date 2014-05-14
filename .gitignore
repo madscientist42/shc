@@ -15,3 +15,5 @@ SNDB4
 *.x.kk
 *.x.c
 *.deb
+install_manifest.txt
+
