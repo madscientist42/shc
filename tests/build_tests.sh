@@ -5,6 +5,11 @@
 # command into tests...
 cd tests
 
+# Clean up for ourselves
+for i in test.bash pru.sh match.sh; do
+	rm -vf $i.x $i.x.c
+done
+
 # Build each of the scripts in turn...
 for i in test.bash pru.sh match.sh; do
 	../shc -f $i
